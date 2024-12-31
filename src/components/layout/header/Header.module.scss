@@ -1,0 +1,35 @@
+.Header {
+    .content {
+        padding: 30px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo {}
+
+
+        .nav {
+            ul {
+                display: flex;
+                align-items: center;
+                gap: 60px;
+            }
+        }
+
+        .active_block {
+            display: flex;
+            align-items: center;
+            gap: 90px;
+
+            .search {
+                input {
+                    width: 150px;
+                    height: 40px;
+                    border: none;
+                    outline: none;
+                    border-radius: 8px;
+                    background: rgb(239, 39, 44);
+                }
+            }
+        }
+    }
+}
