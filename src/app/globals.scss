@@ -5,8 +5,12 @@
 }
 
 html {
-  color-scheme: dark;
+  // color-scheme: dark;
   scroll-behavior: smooth;
+}
+
+body {
+  background: rgb(27, 32, 38);
 }
 
 li {
@@ -23,8 +27,20 @@ body {
 
 
 .container {
-  max-width: 1300px;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+
+.container_for_description {
+  max-width: 480px;
+  width: 100%;
+}
+
+
+.container_for_description_about {
+  max-width: 540px;
+  width: 100%;
 }

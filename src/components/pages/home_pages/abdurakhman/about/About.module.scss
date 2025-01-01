@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=League+Spartan:wght@100..900&family=Shalimar&display=swap');
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 1117 {
+    @media (max-width: 1117px) {
+      @content;
+    }
+  } @else if $breakpoint == 1030 {
+    @media (max-width: 1030px) {
+      @content;
+    }
+  } @else if $breakpoint == 940 {
+    @media (max-width: 940px) {
+      @content;
+    }
+  } @else if $breakpoint == 840 {
+    @media (max-width: 840px) {
+      @content;
+    }
+  } @else if $breakpoint == 720 {
+    @media (max-width: 720px) {
+      @content;
+    }
+  } @else if $breakpoint == 430 {
+    @media (max-width: 430px) {
+      @content;
+    }
+  } @else if $breakpoint == 360 {
+    @media (max-width: 360px) {
+      @content;
+    }
+  }
+}
+
+.Main {
+    .content {
+        padding: 60px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        .head {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            h2 {
+                color: white;
+                font-size: 40px;
+                font-weight: 400;
+                font-family: "Shalimar", serif;
+            }
+        }
+
+        .top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h1 {
+                color: white;
+                font-size: 40px;
+                font-weight: 600;
+                font-family: "Crimson Text", serif;
+            }
+
+            p {
+                color: rgba(255, 255, 255, 0.751);
+                font-size: 16px;
+                font-weight: 400;
+                font-family: "Spartan" serif;
+                line-height: 24px;
+            }
+        }
+
+        .bottom {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            img {
+                width: 538px;
+                height: 303px;
+            }
+        }
+    }
+
+    @include respond-to(1117) {
+        .content {
+            .bottom {
+                img {
+                    width: 478px;
+                    height: 283px;
+                }
+            }
+        }
+    }
+
+    @include respond-to(1030) {
+        .content {
+            .top {
+                display: flex;
+                align-items: start;
+                justify-content: space-between;
+                flex-direction: column;
+
+                p {
+                    margin-top: 24px;
+                }
+            }
+
+            .bottom {
+                img {
+                    width: 438px;
+                    height: 283px;
+                }
+            }
+        }
+    }
+
+    @include respond-to(940) {
+        .content {
+            .bottom {
+                img {
+                    width: 388px;
+                    height: 243px;
+                }
+            }
+        }
+    }
+
+    @include respond-to(840) {
+        .content {
+            .bottom {
+                img {
+                    width: 328px;
+                    height: 193px;
+                }
+            }
+        }
+    }
+
+    @include respond-to(720) {
+        .content {
+            .bottom {
+                margin-top: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: column;
+
+                img {
+                    width: 320px;
+                    height: 193px;
+                }
+            }
+        }
+    }
+
+    @include respond-to(430) {
+        .content {
+            .top {
+                h1 {
+                    color: white;
+                    font-size: 30px;
+                    font-weight: 600;
+                    font-family: "Crimson Text", serif;
+                }
+            }
+        }
+    }
+
+    @include respond-to(360) {
+        .content {
+            .bottom {
+                img {
+                    width: 288px;
+                    height: 193px;
+                }
+            }
+        }
+    }
+}
