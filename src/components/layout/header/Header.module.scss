@@ -3,6 +3,7 @@
     background: rgb(27, 32, 38);
     position: fixed;
         width: 100%;
+        z-index: 9999;
     .content {
         padding: 25px 0;
         display: flex;
