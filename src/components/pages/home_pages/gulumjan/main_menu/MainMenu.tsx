@@ -9,6 +9,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import scss from "./MainMenu.module.scss";
+import { useRouter } from "next/navigation";
 
 type MenuItem = {
   name: string;
@@ -22,11 +23,13 @@ type MenuItems = {
   "Cold Drinks": MenuItem[];
   "Fast Foods": MenuItem[];
   "National Food": MenuItem[];
+  "Eastern cuisine": MenuItem[];
 };
 
 const MainMenu = () => {
+  const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState<keyof MenuItems>(
-    categories[0].name as keyof MenuItems // Приведение типа
+    categories[0].name as keyof MenuItems
   );
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -127,7 +130,7 @@ const MainMenu = () => {
                     initial={{ opacity: 0, y: 15 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{
-                      delay: index * 0.1, // задержка появления каждого элемента
+                      delay: index * 0.1,
                       duration: 0.5,
                     }}
                   >
@@ -152,7 +155,10 @@ const MainMenu = () => {
         >
           <div className={scss.btn}>
             <hr />
-            <button className={scss.formContact}>
+            <button
+              onClick={() => router.push(`/menu`)}
+              className={scss.formContact}
+            >
               View Full menu <FaArrowRight />
             </button>
             <hr />
