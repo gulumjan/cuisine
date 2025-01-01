@@ -91,6 +91,33 @@ export const menuItems = {
         "Lörem ipsum askstoppad defaktisk, logokemi. Diastat retos att endomatisk. Geogehet pultvätta, om pneumativ.",
     },
   ],
+
+  "Eastern cuisine": [
+    {
+      name: "Plov",
+      price: "$12",
+      description:
+        "A fragrant rice dish cooked with lamb, carrots, and spices, often served with garlic and raisins.",
+    },
+    {
+      name: "Lagman",
+      price: "$9",
+      description:
+        "A hearty noodle soup with tender beef, fresh vegetables, and aromatic spices.",
+    },
+    {
+      name: "Manti",
+      price: "$8",
+      description:
+        "Steamed dumplings filled with seasoned meat and onions, served with a side of yogurt sauce.",
+    },
+    {
+      name: "Samsa",
+      price: "$5",
+      description:
+        "Flaky pastry filled with minced lamb or beef, spiced with cumin and baked to perfection.",
+    },
+  ],
 };
 
 export const menus = {
