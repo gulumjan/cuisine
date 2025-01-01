@@ -1,0 +1,54 @@
+.Header {
+    background: rgb(27, 32, 38);
+    .content {
+        padding: 30px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo {
+            h1 {
+                color: white;
+            }
+        }
+
+
+        .right {
+            display: flex;
+            align-items: center;
+            gap: 150px;
+            .nav {
+                ul {
+                    display: flex;
+                    align-items: center;
+                    gap: 60px;
+
+                    li {
+                        color: white;
+                    }
+                }
+            }
+    
+            .active_block {
+                display: flex;
+                align-items: center;
+                gap: 90px;
+    
+                .search {
+                    input {
+                        width: 200px;
+                        height: 40px;
+                        border: none;
+                        outline: none;
+                        border-radius: 8px;
+                        background: rgb(239, 39, 44);
+                        padding: 0 20px;
+                        
+                        &::placeholder {
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
