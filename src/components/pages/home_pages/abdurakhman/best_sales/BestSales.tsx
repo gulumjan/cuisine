@@ -7,6 +7,7 @@ import bestSalesImg1 from "../../../../../assets/abdurakhman_proj_images/best sa
 import bestSalesImg2 from "../../../../../assets/abdurakhman_proj_images/best sales img2.svg";
 import bestSalesArrowRight from "../../../../../assets/abdurakhman_proj_images/best sales arrow.svg";
 import welcomeLogoLeft from "../../../../../assets/abdurakhman_logos/restoranlogos2.svg";
+import { useLanguageStore } from "@/store/useLanguageStore";
 
 const images = [
   {
@@ -28,7 +29,27 @@ const images = [
 ];
 
 const BestSales = () => {
+  const { language } = useLanguageStore();
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const translate = (key: string) => {
+    const translations = {
+      en: {
+        bestSellers: "Best Sellers",
+        title: "You Only Reserve\nException",
+        description:
+          "Each location has a menu that’s curated just for them. See what’s new at your Cafesio, and you’ll find Cafesio Covent Garden moments.",
+      },
+      ru: {
+        bestSellers: "Лучшие продажи",
+        title: "Вы только резервируете\nИсключение",
+        description:
+          "Каждое место имеет меню, которое специально для него. Посмотрите, что нового в вашем Cafesio, и вы найдете моменты Cafesio Covent Garden.",
+      },
+    };
+
+    return translations[language as keyof typeof translations][key as keyof typeof translations['en']] || key;
+  };
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -38,19 +59,17 @@ const BestSales = () => {
     <section className={scss.main}>
       <div className={scss.container}>
         <div className={scss.content}>
-        <div className={scss.head}>
-        <Image width={40} height={40} src={welcomeLogoLeft} alt="" />
-        <span className={scss.label}>Best Sellers</span>
-        </div>
+          <div className={scss.head}>
+            <Image width={40} height={40} src={welcomeLogoLeft} alt="" />
+            <span className={scss.label}>{translate('bestSellers')}</span>
+          </div>
+          <div className="container_for_about_journey">
           <h1 className={scss.title}>
-            You Only Reserve
-            <br />
-            Exception
+            {translate('title')}
           </h1>
+          </div>
           <p className={scss.description}>
-            Each location has a menu that&apos;s curated just for them. See
-            what&apos;s new at your Cafesio, and you&apos;ll find Cafesio Covent
-            Garden moments.
+            {translate('description')}
           </p>
         </div>
 
