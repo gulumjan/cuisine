@@ -1,8 +1,26 @@
-import { FC } from "react";
+"use client";
+
+import { FC, useEffect, useState } from "react";
 import scss from "./Header.module.scss";
 import Link from "next/link";
+import BurgerMenu from "@/ui/burger_menu/BurgerMenu";
+import Search from "@/ui/search/Search";
+
 
 const Header: FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1120);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize(); 
+    return () => window.removeEventListener("resize", handleResize);
+}, []);
+
+
+
   return (
     <section className={scss.Header}>
       <div className="container">
@@ -13,6 +31,12 @@ const Header: FC = () => {
             </Link>
           </div>
 
+
+          {
+            isMobile ? (
+              <> <BurgerMenu/> </>
+            ) : (
+              <>
           <div className={scss.right}>
           <div className={scss.nav}>
             <ul>
@@ -32,14 +56,15 @@ const Header: FC = () => {
           </div>
 
           <div className={scss.active_block}>
-            <div className={scss.search}>
-              <input type="text" placeholder="Search"/>
-            </div>
+                <Search/>
             <div className={scss.lng_switch}>
               <p>EN</p>
             </div>
           </div>
           </div>
+              </>
+            )
+          }
         </div>
 
       </div>
