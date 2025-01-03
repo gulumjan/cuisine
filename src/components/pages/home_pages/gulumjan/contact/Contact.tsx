@@ -1,7 +1,5 @@
-
 "use client";
 import { FC } from "react";
-import "leaflet/dist/leaflet.css";
 import scss from "./Contact.module.scss";
 import leftIcon from "@/assets/Frame 10.png";
 import Image from "next/image";
@@ -75,6 +73,4 @@ const Contact: FC = () => {
   );
 };
 
-
-
-export default Contact
+export default Contact;
