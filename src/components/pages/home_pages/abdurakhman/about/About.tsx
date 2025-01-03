@@ -58,8 +58,8 @@ const About = () => {
             </div>
           </div>
           <div className={scss.bottom}>
-            <Image src={about_img1} alt="About Image 1" width={700} height={500} quality={90} />
-            <Image src={about_img2} alt="About Image 2" width={700} height={500} quality={90} />
+            <Image src={about_img1} alt="About Image 1" width={701} height={500} quality={90} />
+            <Image src={about_img2} alt="About Image 2" width={701} height={500} quality={90} />
           </div>
         </div>
       </div>

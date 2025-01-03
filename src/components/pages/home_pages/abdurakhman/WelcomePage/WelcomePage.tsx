@@ -47,13 +47,13 @@ const WelcomePage = () => {
           <div className={scss.WelcomPage}>
             <div className={scss.block1}>
               <div className={scss.left}>
-                <Image width={40} height={40} src={welcomeLogoLeft} alt="" />
+                <Image width={41} height={41} src={welcomeLogoLeft} alt="" />
               </div>
               <div className={scss.center}>
                 <p>{translate('delicious')}</p> 
               </div>
               <div className={scss.right}>
-                <Image width={40} height={40} src={welcomeLogoRight} alt="" />
+                <Image width={41} height={41} src={welcomeLogoRight} alt="" />
               </div>
             </div>
 

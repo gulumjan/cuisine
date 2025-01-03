@@ -60,7 +60,7 @@ const BestSales = () => {
       <div className={scss.container}>
         <div className={scss.content}>
           <div className={scss.head}>
-            <Image width={40} height={40} src={welcomeLogoLeft} alt="" />
+            <Image width={41} height={41} src={welcomeLogoLeft} alt="" />
             <span className={scss.label}>{translate('bestSellers')}</span>
           </div>
           <div className="container_for_about_journey">

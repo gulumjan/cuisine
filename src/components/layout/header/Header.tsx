@@ -13,7 +13,7 @@ const Header: FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1120);
+      setIsMobile(window.innerWidth <= 1119);
     };
     window.addEventListener("resize", handleResize);
     handleResize();
