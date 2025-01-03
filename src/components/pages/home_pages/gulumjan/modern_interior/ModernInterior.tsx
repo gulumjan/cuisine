@@ -18,7 +18,7 @@ const ModernInterior: FC = () => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section className={scss.ModernInterior}>
+    <section id="Interier" className={scss.ModernInterior}>
       <div className={scss.container}>
         <motion.div
           ref={ref}
