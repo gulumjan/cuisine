@@ -5,7 +5,7 @@ import welcomeLogoLeft from "../../../../../assets/abdurakhman_logos/restoranlog
 import Image from "next/image";
 import about_img1 from "../../../../../assets/abdurakhman_proj_images/restoran img1.svg";
 import about_img2 from "../../../../../assets/abdurakhman_proj_images/restoran img2.svg";
-import { useLanguageStore } from "@/store/useLanguageStore";
+import { useLanguageStore } from "@/store/UseLanguageStore";
 
 const About = () => {
   const language = useLanguageStore((state) => state.language);
