@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=League+Spartan:wght@100..900&family=Shalimar&display=swap');
-
-
 .burger-menu {
     display: flex;
     flex-direction: column;
@@ -9,10 +6,10 @@
     height: 39px;
     cursor: pointer;
     position: fixed; 
-    top: 24px;       
+    top: 10px;       
     right: 20px;     
     z-index: 9000;   
-    background: transparent;
+    background: black;
     border-radius: 4px;
     padding: 3px 10px;
   }
@@ -20,7 +17,7 @@
   .burger-menu div {
     width: 30px;
     height: 3px;
-    background: white;
+    background-color: white;
     transition: all 0.3s; 
   }
   
@@ -47,7 +44,7 @@
     right: 0;
     width: 100%;
     height: 1000px;
-    background-color: rgb(27, 32, 38); 
+    background-color: #ffffff; 
     transform: translateX(100%); 
     transition: transform 0.3s;  
   }
@@ -55,42 +52,21 @@
   .nav-menu.active {
     transform: translateX(0); 
   }
-
-  .top_line {
-    background: white;
-    height: 1px;
-    width: 100%;
-    margin-top: 90px;
-  }
   
   .nav-menu ul {
     list-style: none; 
     padding: 20px;   
-    margin-top: 0px;
+    margin-top: 40px;
   }
   
   .nav-menu ul li {
-    margin: 50px 0; 
+    margin: 30px 0; 
   }
 
   li p {
-    margin-left: 30px;
+    margin-left: 10px;
     font-size: 22px;
-    color: white;
-    font-family: "Spartan" serif;
   }
   
 
-  .under_switch {
-    margin: 20px 30px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    button {
-      font-size: 22px;
-      color: white;
-      font-family: 300;
-      background: transparent;
-      border: none;
-    }
-  }
+  
