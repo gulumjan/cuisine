@@ -2,29 +2,29 @@
 
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import scss from "./Header.module.scss";
-import BurgerMenu from "@/ui/burger_menu/BurgerMenu";
-import Search from "@/ui/search/Search";
 import { useLanguageStore } from "@/store/UseLanguageStore";
+
+const BurgerMenu = dynamic(() => import("@/ui/burger_menu/BurgerMenu"), {
+  ssr: false,
+});
+const Search = dynamic(() => import("@/ui/search/Search"), { ssr: false });
 
 const Header: FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const { language, setLanguage } = useLanguageStore();
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1119);
-    };
+    const handleResize = () => setIsMobile(window.innerWidth <= 1119);
+    setIsMobile(window.innerWidth <= 1119);
     window.addEventListener("resize", handleResize);
-    handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newLocale = e.target.value;
-    console.log("Language changed:", newLocale);
-    setLanguage(newLocale);
+    setLanguage(e.target.value);
   };
 
   const translate = (key: string) => {
@@ -56,15 +56,15 @@ const Header: FC = () => {
     <section className={scss.Header}>
       <div className="container">
         <div className={scss.content}>
+          {/* Логотип */}
           <div className={scss.logo}>
             <Link href="/">
               <h1>{translate("restaurant")}</h1>
             </Link>
           </div>
 
-          {isMobile ? (
-            <BurgerMenu />
-          ) : (
+          {/* Навигация */}
+          {!isMobile ? (
             <div className={scss.right}>
               <div className={scss.nav}>
                 <ul>
@@ -82,7 +82,6 @@ const Header: FC = () => {
                   </Link>
                 </ul>
               </div>
-
               <div className={scss.active_block}>
                 <Search />
                 <div className={scss.lng_switch}>
@@ -97,6 +96,8 @@ const Header: FC = () => {
                 </div>
               </div>
             </div>
+          ) : (
+            <BurgerMenu />
           )}
         </div>
       </div>

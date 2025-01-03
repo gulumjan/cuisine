@@ -1,3 +1,9 @@
+@mixin tablet {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
 @mixin Smallmobile {
   @media (max-width: 768px) {
     @content;
@@ -29,9 +35,6 @@
     gap: 8px;
     position: relative;
     margin-top: 30px;
-    @include Smallmobile() {
-      margin-top: 0;
-    }
 
     hr {
       width: 130px;
@@ -75,9 +78,6 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
-    @include Smallmobile() {
-      display: none;
-    }
     h2 {
       text-align: start;
       color: rgb(255, 255, 255);
@@ -103,9 +103,6 @@
       flex-direction: column;
       opacity: 1;
       align-items: center;
-      @include Smallmobile() {
-        display: none;
-      }
 
       button {
         position: relative;
@@ -143,6 +140,9 @@
       flex-direction: column;
       opacity: 1;
       align-items: center;
+      @include Smallmobile() {
+        margin-left: 30px;
+      }
 
       .categorybutton {
         position: relative;
@@ -175,11 +175,6 @@
           background: rgb(239, 39, 44);
           color: white;
           transform: translateY(-3px);
-          @include Smallmobile() {
-            background: rgb(31, 39, 49);
-            color: white;
-            transform: none;
-          }
         }
 
         &.active {
@@ -247,12 +242,34 @@
 
           p {
             color: rgb(255, 255, 255);
-            font-family: Spartan;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 20px;
-            margin-top: 5px;
           }
+        }
+      }
+    }
+  }
+
+  @include Smallmobile() {
+    .btn {
+      margin-top: 0;
+    }
+
+    .heros {
+      display: none;
+    }
+
+    .categoryMobile {
+      display: flex;
+    }
+
+    .categories {
+      .categorybutton {
+        background: rgb(31, 39, 49);
+        color: white;
+        transform: none;
+
+        &:hover {
+          background: rgb(31, 39, 49);
+          color: white;
         }
       }
     }

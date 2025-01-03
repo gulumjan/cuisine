@@ -1,4 +1,3 @@
-"use client";
 import { FC } from "react";
 import scss from "./Contact.module.scss";
 import leftIcon from "@/assets/Frame 10.png";
