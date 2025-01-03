@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect } from "react";
@@ -82,3 +83,4 @@ const About = () => {
 };
 
 export default About;
+

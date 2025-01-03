@@ -1,3 +1,4 @@
+
 "use client";
 import { FC } from "react";
 import "leaflet/dist/leaflet.css";
@@ -74,4 +75,6 @@ const Contact: FC = () => {
   );
 };
 
-export default Contact;
+
+
+export default Contact
