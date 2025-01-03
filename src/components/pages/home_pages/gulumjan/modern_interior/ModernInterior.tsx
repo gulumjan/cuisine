@@ -1,4 +1,3 @@
-"use client";
 import interior1 from "@/assets/Component 86.png";
 import interior2 from "@/assets/Component 87.png";
 import interior3 from "@/assets/Component 88.png";
