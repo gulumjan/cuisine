@@ -258,6 +258,7 @@
         .cart {
           width: 90%;
           height: 250px;
+          border-radius: 10px;
 
           @include Smallmobile() {
             width: 68%;

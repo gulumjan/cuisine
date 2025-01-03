@@ -1,6 +1,5 @@
 "use client";
-import { FC, useEffect, useRef } from "react";
-import L from "leaflet";
+import { FC } from "react";
 import "leaflet/dist/leaflet.css";
 import scss from "./Contact.module.scss";
 import leftIcon from "@/assets/Frame 10.png";
@@ -11,34 +10,9 @@ import { IoMailUnreadOutline } from "react-icons/io5";
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
 
-// Fix default Leaflet icons using explicit URLs
-L.Marker.prototype.options.icon = L.icon({
-  iconUrl: "/leaflet/marker-icon.png", // Update the path
-  shadowUrl: "/leaflet/marker-shadow.png", // Update the path
-});
-
 const Contact: FC = () => {
-  const mapRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!mapRef.current) return;
-
-    const map = L.map(mapRef.current).setView([42.8746, 74.5698], 13); // Coordinates for Bishkek
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution:
-        '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(map);
-
-    L.marker([42.8746, 74.5698]).addTo(map).bindPopup("Welcome to Bishkek!");
-
-    return () => {
-      map.remove();
-    };
-  }, []);
-
   return (
-    <section className={scss.Contact}>
+    <section id="Contact" className={scss.Contact}>
       <div className="container">
         <div className={scss.content}>
           <div className={scss.contentText}>
@@ -85,7 +59,13 @@ const Contact: FC = () => {
               </div>
             </div>
             <div className={scss.map}>
-              <div className={scss.cart} ref={mapRef} />
+              <iframe
+                className={scss.cart}
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2923.670015518168!2d74.58255517561444!3d42.87980860210807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ec9ba3daadfbb%3A0x4e7a5fa037f5fd93!2sMotion%20Web%20IT%20academy!5e0!3m2!1sru!2skg!4v1735896783412!5m2!1sru!2skg"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </div>
