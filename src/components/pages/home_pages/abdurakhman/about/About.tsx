@@ -1,6 +1,4 @@
-
 "use client";
-
 import React, { useEffect } from "react";
 import scss from "./About.module.scss";
 import welcomeLogoLeft from "../../../../../assets/abdurakhman_logos/restoranlogos2.svg";
@@ -83,4 +81,3 @@ const About = () => {
 };
 
 export default About;
-
