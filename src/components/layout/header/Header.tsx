@@ -1,11 +1,11 @@
 "use client";
 
+import { useLanguageStore } from "@/store/UseLanguageStore";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import scss from "./Header.module.scss";
 import BurgerMenu from "@/ui/burger_menu/BurgerMenu";
 import Search from "@/ui/search/Search";
-import { useLanguageStore } from "@/store/useLanguageStore";
 
 const Header: FC = () => {
   const [isMobile, setIsMobile] = useState(false);

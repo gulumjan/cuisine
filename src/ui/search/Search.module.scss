@@ -1,44 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=League+Spartan:wght@100..900&family=Shalimar&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=League+Spartan:wght@100..900&family=Shalimar&display=swap");
 
 .searchContainer {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 
-    .searchIcon {
-        position: absolute;
-        left: 16px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #ffffff;
-        opacity: 0.8;
+  .searchIcon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    opacity: 0.8;
+  }
+
+  .searchInput {
+    width: 197px;
+    height: 37px;
+    padding: 0 16px 0 42px;
+    border-radius: 8px;
+    background: rgb(239, 39, 44);
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+
+    &::placeholder {
+      color: #ffffff;
+      opacity: 0.8;
+      font-family: "Spartan" serif;
     }
 
-    .searchInput {
-        width: 197px;
-        height: 37px;
-        padding: 0 16px 0 42px;
-        border-radius: 8px;
-        background: rgb(239, 39, 44);
-        border: none;
-        color: #ffffff;
-        font-size: 16px;
-
-        &::placeholder {
-            color: #ffffff;
-            opacity: 0.8;
-            font-family: "Spartan" serif;
-        }
-
-        &:focus {
-            outline: none;
-            background: #c82333;
-        }
-
-        &:hover {
-            background: #c82333;
-        }
+    &:focus {
+      outline: none;
+      background: #c82333;
     }
+
+    &:hover {
+      background: #c82333;
+    }
+  }
 }

@@ -3,17 +3,6 @@
     @content;
   }
 }
-@mixin Bigmobile {
-  @media (max-width: 1024px) {
-    @content;
-  }
-}
-@mixin smallermobile {
-  @media (max-width: 480px) {
-    @content;
-  }
-}
-
 .menus {
   background-color: #1b2026;
   padding: 60px 20px;
@@ -65,7 +54,6 @@
       transition: background-color 0.4s ease-in-out;
       cursor: pointer;
       background: none;
-      color: #fff;
 
       &:hover {
         background-color: red;
@@ -87,10 +75,9 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
-    @include smallermobile() {
+    @include Smallmobile() {
       display: none;
     }
-
     h2 {
       text-align: start;
       color: rgb(255, 255, 255);
@@ -156,13 +143,6 @@
       flex-direction: column;
       opacity: 1;
       align-items: center;
-      @include Bigmobile() {
-        display: flex;
-        flex-direction: column;
-        width: 183px;
-        height: 100%;
-        align-items: center;
-      }
 
       .categorybutton {
         position: relative;
@@ -190,19 +170,7 @@
           border: 0.4px solid rgb(229, 229, 229);
           transition: all 0.3s ease;
         }
-        @include Smallmobile() {
-          width: 283px;
-          height: 56px;
-          font-size: 18px;
-        }
-        @include Bigmobile() {
-          width: 283px;
-          height: 56px;
-          font-size: 18px;
-        }
-        @include smallermobile() {
-          margin-left: 60px;
-        }
+
         &:hover {
           background: rgb(239, 39, 44);
           color: white;
@@ -235,12 +203,7 @@
       flex: 1;
       height: 500px;
       overflow: hidden;
-      @include Bigmobile() {
-        height: 610px;
-      }
-      @include smallermobile() {
-        display: none;
-      }
+
       ul {
         list-style: none;
         padding: 0;

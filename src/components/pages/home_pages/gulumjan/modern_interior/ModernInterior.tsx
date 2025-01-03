@@ -18,7 +18,7 @@ const ModernInterior: FC = () => {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section id="Interier" className={scss.ModernInterior}>
+    <section id="Interior" className={scss.ModernInterior}>
       <div className={scss.container}>
         <motion.div
           ref={ref}
@@ -28,7 +28,7 @@ const ModernInterior: FC = () => {
           className={scss.hero}
         >
           <Image width={51} height={14} src={leftIcon} alt="photo" />
-          <h1>Main Menu</h1>
+          <h1>Modern Interior</h1>
           <Image width={51} height={14} src={rightIcon} alt="photo" />
         </motion.div>
         <div className={scss.gallery}>
