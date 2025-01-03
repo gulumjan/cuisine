@@ -81,10 +81,47 @@
                                         }
                     
                                         .lng_switch {
-                                            p {
-                                                color: white;
-                    }
-                }
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                          }
+                                          
+                                          .language_select {
+                                            appearance: none; 
+                                            -webkit-appearance: none;
+                                            -moz-appearance: none; 
+                                            background-color: transparent; 
+                                            border: none; 
+                                            padding: 10px 20px; 
+                                            font-size: 16px; 
+                                            color: white; 
+                                            cursor: pointer; 
+                                            outline: none; 
+                                            width: auto; 
+                                            font-family: "Spartan" serif;
+                                          
+                                            &:focus {
+                                              border: none; 
+                                            }
+                                          
+                                            &::after {
+                                              content: ' ▼'; 
+                                              font-size: 12px;
+                                            }
+                                          }
+                                          
+                                          .language_select option {
+                                            background-color: transparent; 
+                                            border: none; 
+                                            color: black; 
+                                            font-size: 16px; 
+                                            font-family: "Spartan" serif;
+                                          }
+                                          
+                                          .language_select:focus {
+                                            border: none; 
+                                          }
+                                          
             }
         }
     }

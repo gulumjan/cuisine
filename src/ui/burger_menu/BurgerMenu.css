@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=League+Spartan:wght@100..900&family=Shalimar&display=swap');
+
+
 .burger-menu {
     display: flex;
     flex-direction: column;
@@ -52,22 +55,42 @@
   .nav-menu.active {
     transform: translateX(0); 
   }
+
+  .top_line {
+    background: white;
+    height: 1px;
+    width: 100%;
+    margin-top: 90px;
+  }
   
   .nav-menu ul {
     list-style: none; 
     padding: 20px;   
-    margin-top: 40px;
+    margin-top: 0px;
   }
   
   .nav-menu ul li {
-    margin: 30px 0; 
+    margin: 50px 0; 
   }
 
   li p {
-    margin-left: 10px;
+    margin-left: 30px;
     font-size: 22px;
     color: white;
+    font-family: "Spartan" serif;
   }
   
 
-  
+  .under_switch {
+    margin: 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    button {
+      font-size: 22px;
+      color: white;
+      font-family: 300;
+      background: transparent;
+      border: none;
+    }
+  }
