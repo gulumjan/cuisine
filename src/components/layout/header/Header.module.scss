@@ -1,13 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=League+Spartan:wght@100..900&family=Shalimar&display=swap');
 .Header {
     background: rgb(27, 32, 38);
+    position: fixed;
+        width: 100%;
+        z-index: 9999;
     .content {
-        padding: 30px 0;
+        padding: 25px 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
         .logo {
             h1 {
                 color: white;
+                font-family: "Crimson Text", serif;
+                    font-size: 28px;
+                    font-weight: 600;
             }
         }
 
@@ -24,6 +31,27 @@
 
                     li {
                         color: white;
+                        font-family: "Spartan" serif;
+                        font-size: 16px;
+                        font-weight: 500;
+                        position: relative;
+                        cursor: pointer;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 2px;
+                            background-color: red;
+                            bottom: -4px;
+                            left: 0;
+                            transform: scaleX(0);
+                            transition: transform 0.3s ease;
+                        }
+    
+                        &:hover::after {
+                            transform: scaleX(1);
+                        }
                     }
                 }
             }
@@ -45,9 +73,55 @@
                         
                         &::placeholder {
                             color: white;
+                        font-family: "Spartan" serif;
+                            font-size: 14px;
+                            font-weight: 400;
                         }
-                    }
-                }
+                                        }
+                                        }
+                    
+                                        .lng_switch {
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                          }
+                                          
+                                          .language_select {
+                                            appearance: none; 
+                                            -webkit-appearance: none;
+                                            -moz-appearance: none; 
+                                            background-color: transparent; 
+                                            border: none; 
+                                            padding: 10px 20px; 
+                                            font-size: 16px; 
+                                            color: white; 
+                                            cursor: pointer; 
+                                            outline: none; 
+                                            width: auto; 
+                                            font-family: "Spartan" serif;
+                                          
+                                            &:focus {
+                                              border: none; 
+                                            }
+                                          
+                                            &::after {
+                                              content: ' ▼'; 
+                                              font-size: 12px;
+                                            }
+                                          }
+                                          
+                                          .language_select option {
+                                            background-color: transparent; 
+                                            border: none; 
+                                            color: black; 
+                                            font-size: 16px; 
+                                            font-family: "Spartan" serif;
+                                          }
+                                          
+                                          .language_select:focus {
+                                            border: none; 
+                                          }
+                                          
             }
         }
     }

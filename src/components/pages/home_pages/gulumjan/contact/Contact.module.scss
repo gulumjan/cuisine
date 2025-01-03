@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+
+@mixin Smallmobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin MiddleMobile {
+  @media (max-width: 520px) {
+    @content;
+  }
+}
+@mixin Bigmobile {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin smallermobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+.Contact {
+  margin-top: 100px;
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include smallermobile() {
+      flex-direction: column;
+      align-items: first baseline;
+      gap: 30px;
+    }
+
+    @include Smallmobile() {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .contentText {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      @include Smallmobile() {
+        gap: 7px;
+      }
+      @include smallermobile() {
+        gap: 15px;
+      }
+
+      .main {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        @include Smallmobile() {
+          gap: 7px;
+        }
+
+        h1 {
+          font-family: Shalimar;
+          font-size: 40px;
+          font-weight: 400;
+          line-height: 48.8px;
+          color: #fff;
+
+          @include Smallmobile() {
+            font-size: 18px;
+            line-height: 20px;
+            font-weight: 200;
+          }
+        }
+      }
+
+      h3 {
+        font-family: Silk Serif;
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 61.36px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color: rgba(255, 255, 255, 1);
+        @include Smallmobile() {
+          font-size: 18px;
+          line-height: 33px;
+        }
+        @include smallermobile() {
+          font-size: 28px;
+        }
+      }
+
+      .btn {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        gap: 8px;
+        position: relative;
+        margin-top: 30px;
+        @include Smallmobile() {
+          gap: 4px;
+        }
+
+        hr {
+          width: 130px;
+          border: 1.4px solid #ef272c;
+          transition: transform 0.4s ease-in-out;
+        }
+
+        button {
+          border: 1.6px solid #ef272c;
+          padding: 12px 22px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 7px;
+          font-family: League Spartan;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 13.44px;
+          background: none;
+          color: #fff;
+          cursor: pointer;
+          transition: background-color 0.4s ease-in-out;
+
+          &:hover {
+            background-color: red;
+          }
+          @include Smallmobile() {
+            font-weight: 200;
+            padding: 2px 15px;
+            font-size: 10px;
+          }
+        }
+
+        &:hover {
+          hr:first-of-type {
+            transform: translateY(10px);
+          }
+          hr:last-of-type {
+            transform: translateY(-10px);
+          }
+        }
+      }
+
+      .same {
+        h4 {
+          font-family: League Spartan;
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 24px;
+          color: #ef272c;
+          @include Smallmobile() {
+            font-size: 17px;
+            line-height: 19px;
+          }
+          @include smallermobile() {
+            font-size: 20px;
+          }
+        }
+
+        p {
+          font-family: League Spartan;
+          color: rgba(255, 255, 255, 1);
+          font-size: 20px;
+          font-weight: 300;
+          line-height: 24px;
+          @include Smallmobile() {
+            font-size: 12px;
+          }
+          @include smallermobile() {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    .contentBlock {
+      width: 551px;
+      height: 490px;
+      background: rgba(239, 39, 44, 1);
+      border-radius: 10px;
+
+      @include smallermobile() {
+        background: none;
+        width: 100%;
+        height: auto;
+      }
+
+      @include Smallmobile() {
+        width: 60%;
+        height: 100%;
+        border-radius: 10px;
+      }
+      @include Bigmobile() {
+        width: 480px;
+      }
+      .contentBlockText {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 32px 0 0 32px;
+
+        @include smallermobile() {
+          display: none;
+        }
+
+        h4 {
+          font-family: Silk Serif;
+          font-size: 28px;
+          font-weight: 500;
+          line-height: 29.11px;
+          @include Smallmobile() {
+            font-size: 20px;
+          }
+        }
+
+        .logo {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          p {
+            font-family: Silk Serif;
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 26.82px;
+            @include Smallmobile() {
+              font-size: 18px;
+            }
+          }
+        }
+
+        .icons {
+          display: flex;
+          padding: 13px 0;
+          .ico {
+            font-size: 30px;
+            @include Smallmobile() {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+
+      .map {
+        margin-top: 19px;
+        margin-left: 90px;
+
+        @include Smallmobile() {
+          margin: 0;
+        }
+
+        .cart {
+          width: 90%;
+          height: 250px;
+
+          @include Smallmobile() {
+            width: 68%;
+            height: 150px;
+            margin-left: 70px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+          }
+          @include smallermobile() {
+            width: 333px;
+            height: 406px;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}
