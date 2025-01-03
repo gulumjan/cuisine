@@ -5,7 +5,10 @@ import scss from "./Header.module.scss";
 import Link from "next/link";
 import BurgerMenu from "@/ui/burger_menu/BurgerMenu";
 import Search from "@/ui/search/Search";
+
+
 import { useLanguageStore } from "@/store/useLanguageStore";
+
 
 const Header: FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -17,6 +20,10 @@ const Header: FC = () => {
     };
     window.addEventListener("resize", handleResize);
     handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -48,12 +55,53 @@ const Header: FC = () => {
     return translations[language as keyof typeof translations][key as keyof typeof translations['en']] || key;
   };
 
+
   return (
     <section className={scss.Header}>
       <div className="container">
         <div className={scss.content}>
           <div className={scss.logo}>
             <Link href="/">
+
+              <h1>Restaurant</h1>
+            </Link>
+          </div>
+
+          {isMobile ? (
+            <>
+              {" "}
+              <BurgerMenu />{" "}
+            </>
+          ) : (
+            <>
+              <div className={scss.right}>
+                <div className={scss.nav}>
+                  <ul>
+                    <Link href="#Interior">
+                      <li>Interior</li>
+                    </Link>
+                    <Link href="#AboutUs">
+                      <li>About Us</li>
+                    </Link>
+                    <Link href="/menu">
+                      <li>Menu</li>
+                    </Link>
+                    <Link href="#Contact">
+                      <li>Contact</li>
+                    </Link>
+                  </ul>
+                </div>
+
+                <div className={scss.active_block}>
+                  <Search />
+                  <div className={scss.lng_switch}>
+                    <p>EN</p>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+
               <h1>{translate('restaurant')}</h1>
             </Link>
           </div>
@@ -96,6 +144,7 @@ const Header: FC = () => {
               </>
             )
           }
+
         </div>
       </div>
     </section>
