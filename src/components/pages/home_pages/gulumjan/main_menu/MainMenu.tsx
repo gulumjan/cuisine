@@ -103,7 +103,7 @@ const MainMenu = () => {
                 }}
                 onClick={() =>
                   handleCategoryClick(category.name as keyof MenuItems)
-                } // Приведение типа
+                }
                 className={`${scss.categorybutton} ${
                   selectedCategory === category.name ? scss.active : ""
                 }`}

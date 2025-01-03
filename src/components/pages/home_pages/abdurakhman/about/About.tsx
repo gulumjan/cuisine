@@ -43,7 +43,7 @@ const About = () => {
   };
 
   return (
-    <section className={scss.Main}>
+    <section id="AboutUs" className={scss.Main}>
       <div className="container">
         <div className={scss.content}>
           <div className={scss.head}>
