@@ -125,7 +125,7 @@ export const menus = {
     {
       name: "Ice Cream",
       price: "$9.11",
-      url: "/IceCream1.png",
+      url: "/menu-foto1.png",
       composition: "soda,cream,mild,sugar",
       extras: [
         { name: "Cherry", price: "$0.90" },
@@ -139,7 +139,7 @@ export const menus = {
     {
       name: "Ice Cream",
       price: "$9.11",
-      url: "/IceCream2.png",
+      url: "/menu-foto2.png",
       composition: "soda,cream,mild,sugar",
       extras: [
         { name: "Cherry", price: "$0.90" },
@@ -153,7 +153,7 @@ export const menus = {
     {
       name: "Ice Cream",
       price: "$9.11",
-      url: "/IceCream3.png",
+      url: "/menu-foto3.png",
       composition: "soda,cream,mild,sugar",
       extras: [
         { name: "Cherry", price: "$0.90" },
@@ -167,7 +167,7 @@ export const menus = {
     {
       name: "Ice Cream",
       price: "$9.11",
-      url: "/IceCream4.png",
+      url: "/menu-foto4.png",
       composition: "soda,cream,mild,sugar",
       extras: [
         { name: "Cherry", price: "$0.90" },
@@ -181,7 +181,7 @@ export const menus = {
     {
       name: "Ice Cream",
       price: "$9.11",
-      url: "/IceCream5.png",
+      url: "/menu-foto5.png",
       composition: "soda,cream,mild,sugar",
       extras: [
         { name: "Cherry", price: "$0.90" },
@@ -195,7 +195,7 @@ export const menus = {
     {
       name: "Ice Cream",
       price: "$9.11",
-      url: "/IceCream6.png",
+      url: "/menu-foto6.png",
       composition: "soda,cream,mild,sugar",
       extras: [
         { name: "Cherry", price: "$0.90" },
@@ -207,5 +207,90 @@ export const menus = {
       ],
     },
   ],
-  "Hot Drinks": [],
+  HodDrinks: [
+    {
+      name: "Ice Cream",
+      price: "$9.11",
+      url: "/menu-foto1.png",
+      composition: "soda,cream,mild,sugar",
+      extras: [
+        { name: "Cherry", price: "$0.90" },
+        { name: "Cherry", price: "$0.90" },
+      ],
+      drinks: [
+        { name: "Coca Cola", price: "$0.90" },
+        { name: "Coca Cola", price: "$0.90" },
+      ],
+    },
+    {
+      name: "Ice Cream",
+      price: "$9.11",
+      url: "/menu-foto2.png",
+      composition: "soda,cream,mild,sugar",
+      extras: [
+        { name: "Cherry", price: "$0.90" },
+        { name: "Cherry", price: "$0.90" },
+      ],
+      drinks: [
+        { name: "Coca Cola", price: "$0.90" },
+        { name: "Coca Cola", price: "$0.90" },
+      ],
+    },
+    {
+      name: "Ice Cream",
+      price: "$9.11",
+      url: "/menu-foto3.png",
+      composition: "soda,cream,mild,sugar",
+      extras: [
+        { name: "Cherry", price: "$0.90" },
+        { name: "Cherry", price: "$0.90" },
+      ],
+      drinks: [
+        { name: "Coca Cola", price: "$0.90" },
+        { name: "Coca Cola", price: "$0.90" },
+      ],
+    },
+    {
+      name: "Ice Cream",
+      price: "$9.11",
+      url: "/menu-foto4.png",
+      composition: "soda,cream,mild,sugar",
+      extras: [
+        { name: "Cherry", price: "$0.90" },
+        { name: "Cherry", price: "$0.90" },
+      ],
+      drinks: [
+        { name: "Coca Cola", price: "$0.90" },
+        { name: "Coca Cola", price: "$0.90" },
+      ],
+    },
+    {
+      name: "Ice Cream",
+      price: "$9.11",
+      url: "/menu-foto5.png",
+      composition: "soda,cream,mild,sugar",
+      extras: [
+        { name: "Cherry", price: "$0.90" },
+        { name: "Cherry", price: "$0.90" },
+      ],
+      drinks: [
+        { name: "Coca Cola", price: "$0.90" },
+        { name: "Coca Cola", price: "$0.90" },
+      ],
+    },
+    {
+      name: "Ice Cream",
+      price: "$9.11",
+      url: "/menu-foto6.png",
+      composition: "soda,cream,mild,sugar",
+      extras: [
+        { name: "Cherry", price: "$0.90" },
+        { name: "Cherry", price: "$0.90" },
+      ],
+      drinks: [
+        { name: "Coca Cola", price: "$0.90" },
+        { name: "Coca Cola", price: "$0.90" },
+      ],
+    },
+  ],
 };
