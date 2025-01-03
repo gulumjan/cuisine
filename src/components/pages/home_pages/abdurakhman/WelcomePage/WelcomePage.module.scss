@@ -3,6 +3,7 @@
 .Main {
   height: 600px;
   width: 100%;
+
   .background_photo {
     background-image: url("../../../../../assets/Frame7\(1\).png");
     width: 100%;
@@ -100,7 +101,7 @@
   .Welcome_bottom {
     position: relative;
     z-index: 11;
-    margin-top: 90px;
+    margin-top: 89px;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect } from "react";
 import scss from "./About.module.scss";
 import welcomeLogoLeft from "../../../../../assets/abdurakhman_logos/restoranlogos2.svg";
@@ -42,7 +43,7 @@ const About = () => {
   };
 
   return (
-    <section id="AboutUs" className={scss.Main}>
+    <section className={scss.Main}>
       <div className="container">
         <div className={scss.content}>
           <div className={scss.head}>
@@ -62,14 +63,14 @@ const About = () => {
             <Image
               src={about_img1}
               alt="About Image 1"
-              width={700}
+              width={701}
               height={500}
               quality={90}
             />
             <Image
               src={about_img2}
               alt="About Image 2"
-              width={700}
+              width={701}
               height={500}
               quality={90}
             />
