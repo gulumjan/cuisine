@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import scss from "./Menu.module.scss";
+import { div, h1 } from "framer-motion/client";
 
 type MenuItem = {
   name: string;
@@ -24,7 +25,7 @@ const Menu = () => {
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const selectedItemRef = useRef<HTMLDivElement>(null);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false});
+  const isInView = useInView(ref, { once: false });
 
   const handleCategory = useCallback(
     (categoryName: MenuType) => {
@@ -55,13 +56,10 @@ const Menu = () => {
       }
     };
 
-  
     toggleScroll(Boolean(selectedItem));
-
 
     return () => document.body.classList.remove("no-scroll");
   }, [selectedItem]);
-
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -81,7 +79,7 @@ const Menu = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      id="menu"
+      id={scss.menu}
       className={scss.Menu}
     >
       <div className="container">
@@ -93,26 +91,24 @@ const Menu = () => {
               transition={{ duration: 0.5 }}
               className={scss.categories}
             >
+             
               {categories.map((category) => (
                 <motion.button
                   key={category.id}
-                  initial={{ opacity: 1, x: -100 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{
-                    delay: category.id * 0.1,
-                    duration: 0.5,
-                  }}
                   onClick={() => handleCategory(category.name as MenuType)}
                   className={`${scss.categorybutton} ${
                     selectedCategory === category.name ? scss.active : ""
                   }`}
                   aria-label={`Select ${category.name} category`}
                 >
+                   
                   {category.name}
                 </motion.button>
               ))}
             </motion.div>
           </div>
+         
+      
           <motion.div
             ref={selectedItemRef}
             key={selectedCategory}
@@ -121,24 +117,37 @@ const Menu = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
             className={scss.menuitems}
+            
           >
-      
+
             {selectedItem && (
+          
+            
+              
               <motion.div
+              
                 className={scss.selectedItem}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
               >
+
+            
+              
+              
+              
                 <button
                   className={scss.closeButton}
                   onClick={handleCloseSelectedItem}
                   aria-label="Close selected item"
                 >
+                
                   <h1>
                     <IoCloseCircleOutline />
                   </h1>
                 </button>
+
+             
                 <div className={scss.leftItems}>
                   <Image
                     width={329}
@@ -155,15 +164,21 @@ const Menu = () => {
                   </div>
                 </div>
                 <div className={scss.rightItems}>
+                  <hr />
                   <h4>Extras:</h4>
+             
                   <ul>
                     {selectedItem.extras?.map((extra, index) => (
+                      
                       <li key={index}>
+                        
                         <span>{extra.name}</span>
                         <span>{extra.price}</span>
                       </li>
                     ))}
+
                   </ul>
+                  <hr />
                   <h4 style={{ marginTop: "30px" }}>Drinks:</h4>
                   <ul>
                     {selectedItem.drinks?.map((drink, index) => (
@@ -176,16 +191,18 @@ const Menu = () => {
                 </div>
               </motion.div>
             )}
-            
+
             <motion.ul
               className={scss.alls}
               initial={{ y: 0 }}
-              animate={{ y: selectedItem ? 50 : 0 }} 
+              animate={{ y: selectedItem ? 50 : 0 }}
               transition={{ duration: 0.5 }}
             >
+            
               {menus[selectedCategory]
-                ?.filter((item) => item !== selectedItem) 
+                ?.filter((item) => item !== selectedItem)
                 .map((item, index) => (
+                
                   <motion.li
                     key={index}
                     className={scss.menuItem}
@@ -200,6 +217,7 @@ const Menu = () => {
                     }}
                     onClick={() => handleItemClick(item)}
                   >
+                
                     <div className={scss.menuItemHeader}>
                       <Image
                         width={329}
@@ -207,17 +225,29 @@ const Menu = () => {
                         src={item.url}
                         alt={item.name}
                       />
+                      
                       <div className={scss.notTogether}>
+                  
                         <div className={scss.together}>
+                   
                           <h2>{item.name}</h2>
                           <p>{item.composition}</p>
                         </div>
+                      
                         <h3>{item.price}</h3>
+                     
                       </div>
+                    
+                
                     </div>
+                <hr />
+              
                   </motion.li>
+               
+             
                 ))}
             </motion.ul>
+        
           </motion.div>
         </div>
       </div>

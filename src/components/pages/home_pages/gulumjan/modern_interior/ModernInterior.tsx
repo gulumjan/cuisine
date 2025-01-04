@@ -1,83 +1,122 @@
 "use client";
-import { FC, useRef } from "react";
-import scss from "./ModernInterior.module.scss";
-import {
-  default as leftIcon,
-  default as rightIcon,
-} from "@/assets/Frame 10.png";
-import { motion, useInView } from "framer-motion";
+import interior1 from "@/assets/Component 86.png";
+import interior2 from "@/assets/Component 87.png";
+import interior3 from "@/assets/Component 88.png";
+import interior4 from "@/assets/Component 89.png";
+import interior5 from "@/assets/Component 90.png";
+import leftIcon from "@/assets/Frame 10.png";
+import rightIcon from "@/assets/Frame 10.png";
 import Image from "next/image";
-import Image1 from "@/assets/Component 86.png";
-import Image2 from "@/assets/Component 87.png";
-import Image3 from "@/assets/Component 88.png";
-import Image4 from "@/assets/Component 89.png";
-import Image5 from "@/assets/Component 90.png";
+import scss from "./ModernInterior.module.scss";
+import { useEffect } from "react";
+import { useLanguageStore } from "@/store/UseLanguageStore";
 
-const ModernInterior: FC = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+const ModernInterior = () => {
+  const language = useLanguageStore((state) => state.language);
 
+  useEffect(() => {
+    console.log("Current language in About:", language);
+  }, [language]);
+
+  const translations = {
+    en: {
+      interior: "Modern Interior",
+    },
+    ru: {
+      interior: `Современный Интерьер`,
+    },
+  };
+
+  const translate = (key: string) => {
+    if (!translations[language as keyof typeof translations]) {
+      console.warn(`Translation not found for language: ${language}`);
+      return translations.en[key as keyof typeof translations.en] || key;
+    }
+    return (
+      translations[language as keyof typeof translations][
+        key as keyof typeof translations.en
+      ] || key
+    );
+  };
   return (
-    <section id="Interior" className={scss.ModernInterior}>
-      <div className={scss.container}>
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: -50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1 }}
-          className={scss.hero}
-        >
-          <Image width={51} height={14} src={leftIcon} alt="photo" />
-          <h1>Modern Interior</h1>
-          <Image width={51} height={14} src={rightIcon} alt="photo" />
-        </motion.div>
-        <div className={scss.gallery}>
-          <div className={scss.tall}>
+    <section className={scss.Interior} id="Interior">
+      <div className="container">
+        <div className={scss.content}>
+          <div className={scss.hero}>
+            <Image width={51} height={14} src={leftIcon} alt="photo" />
+            <h1>{translate("interior")}</h1>
+            <Image width={51} height={14} src={rightIcon} alt="photo" />
+          </div>
+          <div className={scss.block}>
             <Image
-              src={Image1}
-              alt="Interior 1"
+              src={interior1}
+              alt="photo"
               width={426}
               height={488}
               quality={100}
-              className={scss.image}
             />
-          </div>
 
-          <div className={scss.imgBlock}>
-            <Image
-              src={Image2}
-              alt="Interior 2"
-              width={501}
-              height={244}
-              className={scss.image}
-            />
-            <div className={scss.smallBlock}>
+            <div className={scss.box}>
               <Image
-                src={Image3}
-                alt="Interior 3"
-                width={278}
-                height={223}
-                className={scss.image}
-              />
-              <Image
-                src={Image4}
-                alt="Interior 4"
-                width={208}
-                height={223}
+                src={interior2}
+                alt="photo"
+                width={501}
+                height={244}
                 quality={100}
-                className={scss.image}
               />
+              <div className={scss.images}>
+                <Image
+                  src={interior3}
+                  alt="photo"
+                  width={278}
+                  height={223}
+                  quality={100}
+                />
+                <Image
+                  src={interior4}
+                  alt="photo"
+                  width={208}
+                  height={223}
+                  quality={100}
+                />
+              </div>
             </div>
-          </div>
-          <div className={scss.tall}>
+
             <Image
-              src={Image5}
-              alt="Interior 5"
-              width={427}
+              src={interior1}
+              alt="photo"
+              width={426}
               height={488}
               quality={100}
-              className={scss.image}
             />
+
+            <div className={scss.box}>
+              <Image
+                src={interior2}
+                alt="photo"
+                width={501}
+                height={244}
+                quality={100}
+              />
+              <div className={scss.images}>
+                <Image
+                  src={interior3}
+                  alt="photo"
+                  width={278}
+                  height={223}
+                  quality={100}
+                />
+                <Image
+                  src={interior4}
+                  alt="photo"
+                  width={208}
+                  height={223}
+                  quality={100}
+                />
+              </div>
+            </div>
+
+            <Image src={interior5} alt="photo" width={427} height={488} />
           </div>
         </div>
       </div>
