@@ -24,7 +24,7 @@ const Menu = () => {
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const selectedItemRef = useRef<HTMLDivElement>(null);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false});
+  const isInView = useInView(ref, { once: false });
 
   const handleCategory = useCallback(
     (categoryName: MenuType) => {
@@ -55,13 +55,10 @@ const Menu = () => {
       }
     };
 
-  
     toggleScroll(Boolean(selectedItem));
-
 
     return () => document.body.classList.remove("no-scroll");
   }, [selectedItem]);
-
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -122,7 +119,6 @@ const Menu = () => {
             transition={{ duration: 0.3 }}
             className={scss.menuitems}
           >
-      
             {selectedItem && (
               <motion.div
                 className={scss.selectedItem}
@@ -176,15 +172,15 @@ const Menu = () => {
                 </div>
               </motion.div>
             )}
-            
+
             <motion.ul
               className={scss.alls}
               initial={{ y: 0 }}
-              animate={{ y: selectedItem ? 50 : 0 }} 
+              animate={{ y: selectedItem ? 50 : 0 }}
               transition={{ duration: 0.5 }}
             >
               {menus[selectedCategory]
-                ?.filter((item) => item !== selectedItem) 
+                ?.filter((item) => item !== selectedItem)
                 .map((item, index) => (
                   <motion.li
                     key={index}
