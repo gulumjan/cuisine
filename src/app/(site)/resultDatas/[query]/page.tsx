@@ -1,10 +1,12 @@
-import SearchResult from '@/ui/search/search_result/SearchResult'
-import React from 'react'
+import SearchResult from "@/ui/search/SearchResult";
+import React from "react";
 
 const page = () => {
   return (
-    <div> <SearchResult/> </div>
-  )
-}
+    <div>
+      <SearchResult />
+    </div>
+  );
+};
 
-export default page
+export default page;
