@@ -6,10 +6,11 @@ import {
 import { categories, menuItems } from "@/datas/categories";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import scss from "./MainMenu.module.scss";
 import { useRouter } from "next/navigation";
+import { useLanguageStore } from "@/store/UseLanguageStore";
 
 type MenuItem = {
   name: string;
@@ -39,6 +40,35 @@ const MainMenu = () => {
       setSelectedCategory(categoryName);
     }
   };
+  const language = useLanguageStore((state) => state.language);
+
+  useEffect(() => {
+    console.log("Current language in About:", language);
+  }, [language]);
+
+  const translations = {
+    en: {
+      menu: "Main Menu",
+      quality: "Exceptional Quality.  Delightfully Delicious",
+    },
+    ru: {
+      menu: "Главное Mеню",
+      quality: `Исключительное качество. 
+       Восхитительно вкусно`,
+    },
+  };
+
+  const translate = (key: string) => {
+    if (!translations[language as keyof typeof translations]) {
+      console.warn(`Translation not found for language: ${language}`);
+      return translations.en[key as keyof typeof translations.en] || key;
+    }
+    return (
+      translations[language as keyof typeof translations][
+        key as keyof typeof translations.en
+      ] || key
+    );
+  };
 
   return (
     <section className={scss.menus}>
@@ -51,7 +81,7 @@ const MainMenu = () => {
           className={scss.hero}
         >
           <Image width={51} height={14} src={leftIcon} alt="photo" />
-          <h1>Main Menu</h1>
+          <h1>{translate("menu")}</h1>
           <Image width={51} height={14} src={rightIcon} alt="photo" />
         </motion.div>
         <motion.div
@@ -61,9 +91,7 @@ const MainMenu = () => {
           transition={{ duration: 1 }}
           className={scss.heros}
         >
-          <h2>
-            Exceptional Quality. <br /> Delightfully Delicious
-          </h2>
+          <h2>{translate("quality")}</h2>
         </motion.div>
         <div className={scss.menucontainer}>
           <div className={scss.categoryMobile}>
@@ -73,9 +101,7 @@ const MainMenu = () => {
               <Image width={51} height={14} src={rightIcon} alt="photo" />
             </div>
             <div className={scss.heros}>
-              <h2>
-                Exceptional Quality. <br /> Delightfully Delicious
-              </h2>
+              <h2>{translate("quality")}</h2>
             </div>
             {categories.map((category) => (
               <button
@@ -103,7 +129,7 @@ const MainMenu = () => {
                 }}
                 onClick={() =>
                   handleCategoryClick(category.name as keyof MenuItems)
-                } // Приведение типа
+                }
                 className={`${scss.categorybutton} ${
                   selectedCategory === category.name ? scss.active : ""
                 }`}
