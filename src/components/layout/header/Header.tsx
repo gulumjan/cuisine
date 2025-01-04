@@ -4,6 +4,10 @@ import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import scss from "./Header.module.scss";
+import BurgerMenu from "@/ui/burger_menu/BurgerMenu";
+import { useLanguageStore } from "@/store/UseLanguageStore";
+import SearchBar from "@/ui/search/Search";
+
 import { useLanguageStore } from "@/store/UseLanguageStore";
 import { useRouter } from "next/navigation";
 
@@ -11,6 +15,7 @@ const BurgerMenu = dynamic(() => import("@/ui/burger_menu/BurgerMenu"), {
   ssr: false,
 });
 const Search = dynamic(() => import("@/ui/search/Search"), { ssr: false });
+
 
 const Header: FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -72,7 +77,7 @@ const Header: FC = () => {
                 </ul>
               </div>
               <div className={scss.active_block}>
-                <Search />
+                <SearchBar />
                 <div className={scss.lng_switch}>
                   <select
                     value={language}
