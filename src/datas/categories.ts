@@ -561,8 +561,6 @@ export const menus = {
 
   "Fast Foods": [
 
-  HotDrinks: [
-
     {
       name: "Ice Cream",
       price: "$9.11",
