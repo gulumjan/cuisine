@@ -24,7 +24,7 @@ type MenuItems = {
   "Cold Drinks": MenuItem[];
   "Fast Foods": MenuItem[];
   "National Food": MenuItem[];
-  "Eastern cuisine": MenuItem[];
+  "Eastern Cuisine": MenuItem[];
 };
 
 const MainMenu = () => {
