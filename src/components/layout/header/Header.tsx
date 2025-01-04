@@ -5,6 +5,7 @@ import { FC, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import scss from "./Header.module.scss";
 import { useLanguageStore } from "@/store/UseLanguageStore";
+import { useRouter } from "next/navigation";
 
 const BurgerMenu = dynamic(() => import("@/ui/burger_menu/BurgerMenu"), {
   ssr: false,
@@ -14,7 +15,7 @@ const Search = dynamic(() => import("@/ui/search/Search"), { ssr: false });
 const Header: FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const { language, setLanguage } = useLanguageStore();
-
+  const router = useRouter();
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 1119);
     setIsMobile(window.innerWidth <= 1119);
@@ -56,30 +57,18 @@ const Header: FC = () => {
     <section className={scss.Header}>
       <div className="container">
         <div className={scss.content}>
-          {/* Логотип */}
           <div className={scss.logo}>
-            <Link href="/">
-              <h1>{translate("restaurant")}</h1>
-            </Link>
+            <h1 onClick={() => router.push(`/`)}>{translate("restaurant")}</h1>
           </div>
 
-          {/* Навигация */}
           {!isMobile ? (
             <div className={scss.right}>
               <div className={scss.nav}>
                 <ul>
-                  <Link href="#Interior">
-                    <li>{translate("interior")}</li>
-                  </Link>
-                  <Link href="#AboutUs">
-                    <li>{translate("aboutUs")}</li>
-                  </Link>
-                  <Link href="/menu">
-                    <li>{translate("menu")}</li>
-                  </Link>
-                  <Link href="#Contact">
-                    <li>{translate("contact")}</li>
-                  </Link>
+                  <Link href="#Interior">{translate("interior")}</Link>
+                  <Link href="#AboutUs">{translate("aboutUs")}</Link>
+                  <Link href="/menu">{translate("menu")}</Link>
+                  <Link href="#Contact">{translate("contact")}</Link>
                 </ul>
               </div>
               <div className={scss.active_block}>
