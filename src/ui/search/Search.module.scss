@@ -16,7 +16,7 @@
   }
 
   .searchInput {
-    width: 197px;
+    width: 100%;
     height: 37px;
     padding: 0 16px 0 42px;
     border-radius: 8px;
@@ -28,7 +28,7 @@
     &::placeholder {
       color: #ffffff;
       opacity: 0.8;
-      font-family: "Spartan" serif;
+      font-family: "League Spartan", serif;
     }
 
     &:focus {
@@ -38,6 +38,67 @@
 
     &:hover {
       background: #c82333;
+    }
+  }
+
+  .suggestionsContainer {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 10;
+    max-height: 300px; /* Ограничение высоты */
+    overflow-y: auto;
+    padding: 8px 0;
+
+    .suggestionItem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      font-family: "League Spartan", sans-serif;
+
+      &:hover {
+        background: #f4f4f4;
+        transform: scale(1.02);
+      }
+
+      &:active {
+        background: #e9e9e9;
+      }
+
+      & + & {
+        border-top: 1px solid #ececec; /* Разделитель между подсказками */
+      }
+    }
+
+    .suggestionName {
+      font-weight: 600;
+      color: #333333;
+      flex-grow: 1;
+      text-align: left;
+    }
+
+    .suggestionCategory {
+      font-size: 14px;
+      font-weight: 500;
+      color: #666666;
+      margin-left: 12px;
+      text-transform: capitalize;
+    }
+
+    .suggestionPrice {
+      font-weight: 700;
+      font-size: 14px;
+      color: #ef272c;
+      margin-left: auto;
+      white-space: nowrap; /* Не переносить */
     }
   }
 }

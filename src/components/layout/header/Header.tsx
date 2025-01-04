@@ -4,8 +4,8 @@ import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import scss from "./Header.module.scss";
 import BurgerMenu from "@/ui/burger_menu/BurgerMenu";
-import Search from "@/ui/search/Search";
 import { useLanguageStore } from "@/store/UseLanguageStore";
+import SearchBar from "@/ui/search/Search";
 
 const Header: FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -84,7 +84,7 @@ const Header: FC = () => {
               </div>
 
               <div className={scss.active_block}>
-                <Search />
+                <SearchBar />
                 <div className={scss.lng_switch}>
                   <select
                     value={language}
