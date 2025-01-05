@@ -16,7 +16,6 @@
   }
 }
 
-
 .menus {
   background-color: #1b2026;
   padding: 60px 20px;
@@ -109,14 +108,14 @@
     gap: 100px;
     position: relative;
 
-    .closeButton{
+    .closeButton {
       position: absolute;
       top: 40px;
       right: 20px;
       z-index: 999;
       background: none;
-     border: none;
-     display: none;
+      border: none;
+      display: none;
     }
 
     .categoryMobile {
@@ -286,7 +285,6 @@
 
     .categoryMobile {
       display: flex;
-
     }
 
     .categories {
@@ -304,89 +302,22 @@
   }
 }
 
-
-
-
-
-
-
-
-
 @media (max-width: 800px) {
-
   .menus {
-
-
-    .hero {
-
-
-      h1 {}
-    }
-
-    .btn {
-
-
-      hr {}
-
-      button {
-
-
-        &:hover {}
-      }
-
-      &:hover {
-        hr:first-of-type {}
-
-        hr:last-of-type {}
-      }
-    }
-
-    .heros {
-
-
-      h2 {}
-    }
-
     .menucontainer {
       flex-direction: column;
       z-index: 999;
       position: relative;
 
-      .closeButton{
+      .closeButton {
         display: block;
         font-size: 20px;
       }
 
-
-   
-
-      .categoryMobile {
-        // display: block;
-
-        button {
-
-
-          &::before {}
-        }
-      }
-
       .categories {
-
-
         .categorybutton {
-
           &::before {
-
             content: "";
-
-          }
-
-          &:hover {}
-
-          &.active {
-
-
-            &::before {}
           }
         }
       }
@@ -395,69 +326,20 @@
         overflow: visible;
         width: 100%;
         height: auto;
-        background: #1F2731;
+        background: #1f2731;
         padding: 60px 30px;
         position: absolute;
         top: 20px;
-        
         border-radius: 11px;
 
-       
-
-
         &::before {
-
           content: "";
           position: absolute;
           top: 20px;
           right: 20px;
           cursor: pointer;
-
-        }
-
-
-        
-
-       
-
-
-
-
-        ul {
-
-
-          li {
-
-
-            .menuItemHeader {}
-
-            h2 {}
-
-            .dotLeader {}
-
-            span {}
-
-            p {}
-          }
-        }
-      }
-    }
-
-    @include Smallmobile() {
-      .btn {}
-
-      .heros {}
-
-      .categoryMobile {}
-
-      .categories {
-        .categorybutton {
-
-
-          &:hover {}
         }
       }
     }
   }
-
 }
