@@ -28,7 +28,6 @@ type MenuItems = {
   "Eastern Cuisine": MenuItem[];
 };
 
-
 const MainMenu = () => {
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState<keyof MenuItems>(
@@ -36,20 +35,21 @@ const MainMenu = () => {
   );
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const selectedItemRef = useRef<HTMLDivElement>(null);
-  console.log(selectedItem);
-  
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-
 
   const handleCategoryClick = (categoryName: keyof MenuItems) => {
     if (selectedCategory !== categoryName) {
       setSelectedCategory(categoryName);
+      setIsMenuVisible(true);
     }
   };
- 
 
-  const handleCloseSelectedItem = () => setSelectedItem(null);
+  const handleCloseSelectedItem = () => {
+    setSelectedItem(null);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -58,15 +58,14 @@ const MainMenu = () => {
         !selectedItemRef.current.contains(event.target as Node)
       ) {
         setSelectedItem(null);
+        setIsMenuVisible(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-  
-  const language = useLanguageStore((state) => state.language);
 
-
+  const language = useLanguageStore((state) => state.language) as "en" | "ru";
 
   useEffect(() => {
     console.log("Current language in About:", language);
@@ -75,26 +74,31 @@ const MainMenu = () => {
   const translations = {
     en: {
       menu: "Main Menu",
-      quality: "Exceptional Quality.  Delightfully Delicious",
+      quality: "Exceptional Quality. Delightfully Delicious",
     },
     ru: {
-      menu: "Главное Mеню",
-      quality: `Исключительное качество. 
-       Восхитительно вкусно`,
+      menu: "Главное Меню",
+      quality: "Исключительное качество. Восхитительно вкусно",
     },
   };
 
-  const translate = (key: string) => {
-    if (!translations[language as keyof typeof translations]) {
-      console.warn(`Translation not found for language: ${language}`);
-      return translations.en[key as keyof typeof translations.en] || key;
-    }
-    return (
-      translations[language as keyof typeof translations][
-        key as keyof typeof translations.en
-      ] || key
-    );
+  const translate = (key: keyof typeof translations.en) => {
+    const lang = language as keyof typeof translations;
+    return translations[lang]?.[key] || key;
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 800) {
+        setIsMenuVisible(false);
+      } else {
+        setIsMenuVisible(true);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section className={scss.menus}>
@@ -119,16 +123,20 @@ const MainMenu = () => {
         >
           <h2>{translate("quality")}</h2>
         </motion.div>
+
         <div className={scss.menucontainer}>
-        <button
-                  className={scss.closeButton}
-                  onClick={handleCloseSelectedItem}
-                  aria-label="Close selected item"
-                >
-                  <h1>
-                  <IoCloseCircleOutline />
-                  </h1>
-                </button>
+          {selectedItem && (
+            <button
+              className={scss.closeButton}
+              onClick={handleCloseSelectedItem}
+              aria-label="Close selected item"
+            >
+              <h1>
+                <IoCloseCircleOutline />
+              </h1>
+            </button>
+          )}
+
           <div className={scss.categoryMobile}>
             <div className={scss.hero}>
               <Image width={51} height={14} src={leftIcon} alt="photo" />
@@ -152,6 +160,8 @@ const MainMenu = () => {
               </button>
             ))}
           </div>
+
+          {/* {isMenuVisible && ( */}
           <div className={scss.categories}>
             {categories.map((category) => (
               <motion.button
@@ -173,40 +183,55 @@ const MainMenu = () => {
               </motion.button>
             ))}
           </div>
+          {/* // )} */}
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={selectedCategory}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className={scss.menuitems}
-            >
-              <ul ref={ref}>
-                {menuItems[selectedCategory]?.map((item, index) => (
-                  <motion.li
-                    key={index}
-                    className={scss.menuItem}
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{
-                      delay: index * 0.1,
-                      duration: 0.5,
-                    }}
-                  >
-                    <div className={scss.menuItemHeader}>
-                      <h2>{item.name}</h2>
-                      <div className={scss.dotLeader}></div>
-                      <span>{item.price}</span>
-                    </div>
-                    <p>{item.description}</p>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          </AnimatePresence>
+          {isMenuVisible ? (
+            <>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={selectedCategory}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className={scss.menuitems}
+                >
+                  <ul ref={ref}>
+                    <button
+                      className={scss.closeButton}
+                      onClick={() => setIsMenuVisible(false)}
+                      aria-label="Close selected item"
+                    >
+                      <IoCloseCircleOutline />
+                    </button>
+                    {menuItems[selectedCategory]?.map((item, index) => (
+                      <motion.li
+                        key={index}
+                        className={scss.menuItem}
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{
+                          delay: index * 0.1,
+                          duration: 0.5,
+                        }}
+                      >
+                        <div className={scss.menuItemHeader}>
+                          <h2>{item.name}</h2>
+                          <div className={scss.dotLeader}></div>
+                          <span>{item.price}</span>
+                        </div>
+                        <p>{item.description}</p>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </AnimatePresence>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
+
         <div
           style={{
             display: "flex",
@@ -220,7 +245,7 @@ const MainMenu = () => {
               onClick={() => router.push(`/menu`)}
               className={scss.formContact}
             >
-              View Full menu <FaArrowRight />
+              View Full Menu <FaArrowRight />
             </button>
             <hr />
           </div>
