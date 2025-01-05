@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+// import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import scss from "./Header.module.scss";
@@ -66,10 +66,23 @@ const Header: FC = () => {
             <div className={scss.right}>
               <div className={scss.nav}>
                 <ul>
-                  <Link href="#Interior">{translate("interior")}</Link>
-                  <Link href="#AboutUs">{translate("aboutUs")}</Link>
-                  <Link href="/menu">{translate("menu")}</Link>
-                  <Link href="#Contact">{translate("contact")}</Link>
+                  {/* <Link href="#Interior">{translate("interior")}</Link> */}
+                  <p onClick={() => router.push("/#Interior")}>
+                    {translate("interior")}
+                  </p>
+                  <p onClick={() => router.push("/#AboutUs")}>
+                    {translate("aboutUs")}
+                  </p>
+
+                  <p onClick={() => router.push("/menu")}>
+                    {translate("menu")}
+                  </p>
+                  <p onClick={() => router.push("/#Contact")}>
+                    {translate("contact")}
+                  </p>
+                  {/* <Link href="#AboutUs">{translate("aboutUs")}</Link> */}
+                  {/* <Link href="/menu">{translate("menu")}</Link> */}
+                  {/* <Link href="#Contact">{translate("contact")}</Link> */}
                 </ul>
               </div>
               <div className={scss.active_block}>

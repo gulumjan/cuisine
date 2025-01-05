@@ -8,6 +8,7 @@ import Image from "next/image";
 import point from "../../../../../assets/abdurakhman_logos/restoran icon point.svg";
 import phone from "../../../../../assets/abdurakhman_logos/restoran icon phone.svg";
 import { useLanguageStore } from "@/store/UseLanguageStore";
+import { FaArrowRight } from "react-icons/fa";
 
 const WelcomePage = () => {
   const { language } = useLanguageStore();
@@ -73,10 +74,12 @@ const WelcomePage = () => {
               </div>
             </div>
 
-            <div className={scss.block2}>
-              <div className={scss.top}></div>
-              <button>{translate("reserveTable")}</button>
-              <div className={scss.bottom}></div>
+            <div className={scss.btn}>
+              <hr />
+              <button className={scss.formContact}>
+                {translate("reserveTable")} <FaArrowRight />
+              </button>
+              <hr />
             </div>
           </div>
         </div>

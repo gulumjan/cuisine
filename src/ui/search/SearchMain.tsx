@@ -1,8 +1,9 @@
 "use client";
 import { FC } from "react";
 import scss from "./SearchMain.module.scss";
-import { menuItems } from "@/datas/categories";
+import { menus } from "@/datas/categories";
 import Image from "next/image";
+import SearchBar from "./Search";
 
 const SearchMain: FC = () => {
   return (
@@ -11,85 +12,74 @@ const SearchMain: FC = () => {
         <div className={scss.content}>
           <h1>Foods</h1>
 
+          <div className={scss.search}>
+            <SearchBar />
+          </div>
           <div className={scss.foodList}>
-            {menuItems["Cold Drinks"] &&
-              menuItems["Cold Drinks"].map((el, idx) => (
+            {menus["Desserts"] &&
+              menus["Desserts"].map((el, idx) => (
                 <div className={scss.foodCard} key={idx}>
-                  <Image
-                    src={el.image}
-                    width={200}
-                    height={180}
-                    alt={el.name}
-                  />
+                  <Image src={el.url} width={200} height={180} alt={el.name} />
                   <div className={scss.foodInfo}>
                     <p className={scss.foodName}>{el.name}</p>
+                    <p className={scss.foodDescription}>{el.composition}</p>
                     <p className={scss.foodPrice}>{el.price}</p>
                   </div>
-                  <p className={scss.foodDescription}>{el.description}</p>
                 </div>
               ))}
-            {menuItems["Hot Drinks"] &&
-              menuItems["Hot Drinks"].map((el, idx) => (
+            {menus["Cold Drinks"] &&
+              menus["Cold Drinks"].map((el, idx) => (
                 <div className={scss.foodCard} key={idx}>
-                  <Image
-                    src={el.image}
-                    width={200}
-                    height={180}
-                    alt={el.name}
-                  />
+                  <Image src={el.url} width={200} height={180} alt={el.name} />
                   <div className={scss.foodInfo}>
                     <p className={scss.foodName}>{el.name}</p>
+                    <p className={scss.foodDescription}>{el.composition}</p>
                     <p className={scss.foodPrice}>{el.price}</p>
                   </div>
-                  <p className={scss.foodDescription}>{el.description}</p>
                 </div>
               ))}
-            {menuItems["Fast Foods"] &&
-              menuItems["Fast Foods"].map((el, idx) => (
+            {menus["Hot Drinks"] &&
+              menus["Hot Drinks"].map((el, idx) => (
                 <div className={scss.foodCard} key={idx}>
-                  <Image
-                    src={el.image}
-                    width={200}
-                    height={180}
-                    alt={el.name}
-                  />
+                  <Image src={el.url} width={200} height={180} alt={el.name} />
                   <div className={scss.foodInfo}>
                     <p className={scss.foodName}>{el.name}</p>
+                    <p className={scss.foodDescription}>{el.composition}</p>
                     <p className={scss.foodPrice}>{el.price}</p>
                   </div>
-                  <p className={scss.foodDescription}>{el.description}</p>
                 </div>
               ))}
-            {menuItems["Eastern Cuisine"] &&
-              menuItems["Eastern Cuisine"].map((el, idx) => (
+            {menus["Fast Foods"] &&
+              menus["Fast Foods"].map((el, idx) => (
                 <div className={scss.foodCard} key={idx}>
-                  <Image
-                    src={el.image}
-                    width={200}
-                    height={180}
-                    alt={el.name}
-                  />
+                  <Image src={el.url} width={200} height={180} alt={el.name} />
                   <div className={scss.foodInfo}>
                     <p className={scss.foodName}>{el.name}</p>
+                    <p className={scss.foodDescription}>{el.composition}</p>
                     <p className={scss.foodPrice}>{el.price}</p>
                   </div>
-                  <p className={scss.foodDescription}>{el.description}</p>
                 </div>
               ))}
-            {menuItems["National Food"] &&
-              menuItems["National Food"].map((el, idx) => (
+            {menus["Eastern Cuisine"] &&
+              menus["Eastern Cuisine"].map((el, idx) => (
                 <div className={scss.foodCard} key={idx}>
-                  <Image
-                    src={el.image}
-                    width={200}
-                    height={180}
-                    alt={el.name}
-                  />
+                  <Image src={el.url} width={200} height={180} alt={el.name} />
                   <div className={scss.foodInfo}>
                     <p className={scss.foodName}>{el.name}</p>
+                    <p className={scss.foodDescription}>{el.composition}</p>
                     <p className={scss.foodPrice}>{el.price}</p>
                   </div>
-                  <p className={scss.foodDescription}>{el.description}</p>
+                </div>
+              ))}
+            {menus["National Food"] &&
+              menus["National Food"].map((el, idx) => (
+                <div className={scss.foodCard} key={idx}>
+                  <Image src={el.url} width={200} height={180} alt={el.name} />
+                  <div className={scss.foodInfo}>
+                    <p className={scss.foodName}>{el.name}</p>
+                    <p className={scss.foodDescription}>{el.composition}</p>
+                    <p className={scss.foodPrice}>{el.price}</p>
+                  </div>
                 </div>
               ))}
           </div>

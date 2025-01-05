@@ -146,20 +146,20 @@ const Menu = () => {
                     <h3>{selectedItem.price}</h3>
                   </div>
                 </div>
-                <div className={scss.rightItems}>
+                {/* <div className={scss.rightItems}>
                   <hr />
-                  <h4>Extras:</h4>
+                  <h4>Extras:</h4> */}
 
-                  <ul>
+                {/* <ul>
                     {selectedItem.extras?.map((extra, index) => (
                       <li key={index}>
                         <span>{extra.name}</span>
                         <span>{extra.price}</span>
                       </li>
                     ))}
-                  </ul>
-                  <hr />
-                  <h4 style={{ marginTop: "30px" }}>Drinks:</h4>
+                  </ul> */}
+                <hr />
+                {/* <h4 style={{ marginTop: "30px" }}>Drinks:</h4>
                   <ul>
                     {selectedItem.drinks?.map((drink, index) => (
                       <li key={index}>
@@ -167,8 +167,8 @@ const Menu = () => {
                         <span>{drink.price}</span>
                       </li>
                     ))}
-                  </ul>
-                </div>
+                  </ul> */}
+                {/* </div> */}
               </motion.div>
             )}
 
