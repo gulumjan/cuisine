@@ -11,6 +11,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import scss from "./MainMenu.module.scss";
 import { useRouter } from "next/navigation";
 import { useLanguageStore } from "@/store/UseLanguageStore";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 type MenuItem = {
   name: string;
@@ -27,20 +28,45 @@ type MenuItems = {
   "Eastern Cuisine": MenuItem[];
 };
 
+
 const MainMenu = () => {
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState<keyof MenuItems>(
     categories[0].name as keyof MenuItems
   );
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+  const selectedItemRef = useRef<HTMLDivElement>(null);
+  console.log(selectedItem);
+  
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
 
   const handleCategoryClick = (categoryName: keyof MenuItems) => {
     if (selectedCategory !== categoryName) {
       setSelectedCategory(categoryName);
     }
   };
+ 
+
+  const handleCloseSelectedItem = () => setSelectedItem(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        selectedItemRef.current &&
+        !selectedItemRef.current.contains(event.target as Node)
+      ) {
+        setSelectedItem(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+  
   const language = useLanguageStore((state) => state.language);
+
+
 
   useEffect(() => {
     console.log("Current language in About:", language);
@@ -94,6 +120,15 @@ const MainMenu = () => {
           <h2>{translate("quality")}</h2>
         </motion.div>
         <div className={scss.menucontainer}>
+        <button
+                  className={scss.closeButton}
+                  onClick={handleCloseSelectedItem}
+                  aria-label="Close selected item"
+                >
+                  <h1>
+                  <IoCloseCircleOutline />
+                  </h1>
+                </button>
           <div className={scss.categoryMobile}>
             <div className={scss.hero}>
               <Image width={51} height={14} src={leftIcon} alt="photo" />

@@ -23,8 +23,7 @@ const Menu = () => {
   );
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const selectedItemRef = useRef<HTMLDivElement>(null);
-  // const ref = useRef(null);
-  // const isInView = useInView(ref, { once: false });
+ 
 
   const handleCategory = useCallback(
     (categoryName: MenuType) => {
