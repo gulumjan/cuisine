@@ -9,9 +9,12 @@ import point from "../../../../../assets/abdurakhman_logos/restoran icon point.s
 import phone from "../../../../../assets/abdurakhman_logos/restoran icon phone.svg";
 import { useLanguageStore } from "@/store/UseLanguageStore";
 import { FaArrowRight } from "react-icons/fa";
+import { useBookingStore } from "@/store/useBookingStore";
+import BookingModal from "@/ui/booking_modal/BookingModal";
 
 const WelcomePage = () => {
   const { language } = useLanguageStore();
+  const { isOpen, setIsOpen } = useBookingStore();
 
   const translate = (key: string) => {
     const translations = {
@@ -76,7 +79,10 @@ const WelcomePage = () => {
 
             <div className={scss.btn}>
               <hr />
-              <button className={scss.formContact}>
+              <button
+                className={scss.formContact}
+                onClick={() => setIsOpen(!isOpen)}
+              >
                 {translate("reserveTable")} <FaArrowRight />
               </button>
               <hr />
@@ -100,6 +106,7 @@ const WelcomePage = () => {
           </div>
         </div>
       </div>
+      {isOpen && <BookingModal />}
     </section>
   );
 };
