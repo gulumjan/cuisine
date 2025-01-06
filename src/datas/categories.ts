@@ -8,6 +8,8 @@ export const categories = [
   { id: 6, name: "Fast Foods" },
 ];
 
+
+
 export const menuItems = {
   Desserts: [
     {
