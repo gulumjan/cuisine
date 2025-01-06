@@ -9,9 +9,8 @@
     @content;
   }
 }
-
-@mixin Smallmobile {
-  @media (max-width: 768px) {
+@mixin mobile {
+  @media (max-width: 480px) {
     @content;
   }
 }
@@ -19,7 +18,6 @@
 .menus {
   background-color: #1b2026;
   padding: 60px 20px;
-
   .hero {
     display: flex;
     align-items: center;
@@ -161,13 +159,18 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      opacity: 1;
+      opacity: 9;
       align-items: center;
 
       @include Smallmobile() {
         margin-left: 30px;
       }
-
+      @include mobile() {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-right: 50px;
+      }
       .categorybutton {
         position: relative;
         background: rgb(31, 39, 49);
@@ -183,7 +186,10 @@
         line-height: 37px;
         overflow: visible;
         margin-left: 30px;
-
+        @include mobile() {
+          width: 280px;
+          margin: 0;
+        }
         &::before {
           z-index: 10;
           position: absolute;
@@ -280,11 +286,10 @@
     }
 
     .heros {
-      display: none;
-    }
-
-    .categoryMobile {
-      display: flex;
+      display: block;
+      h2 {
+        display: none;
+      }
     }
 
     .categories {
@@ -292,7 +297,9 @@
         background: rgb(31, 39, 49);
         color: white;
         transform: none;
-
+        width: 323px;
+        height: 66px;
+        margin: 0;
         &:hover {
           background: rgb(31, 39, 49);
           color: white;
@@ -315,6 +322,7 @@
       }
 
       .categories {
+        opacity: 1;
         .categorybutton {
           &::before {
             content: "";
@@ -323,7 +331,6 @@
       }
 
       .menuitems {
-        overflow: visible;
         width: 100%;
         height: auto;
         background: #1f2731;
