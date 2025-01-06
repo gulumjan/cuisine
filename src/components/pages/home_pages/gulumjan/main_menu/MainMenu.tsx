@@ -161,13 +161,12 @@ const MainMenu = () => {
             ))}
           </div>
 
-          {/* {isMenuVisible && ( */}
           <div className={scss.categories}>
             {categories.map((category) => (
               <motion.button
                 key={category.id}
                 initial={{ opacity: 0, x: -100 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                animate={isInView ? { opacity: 1, x: 11 } : {}}
                 transition={{
                   delay: category.id * 0.1,
                   duration: 0.5,

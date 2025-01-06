@@ -20,11 +20,15 @@ const SearchBar: FC<SearchBarProps> = ({ onSearch }) => {
     if (onSearch) {
       onSearch(value);
     }
+  };
 
-    if (value.length > 0) {
-      router.push(`/resultDatas/${encodeURIComponent(value)}`);
+  const onKeyDownHandle = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      router.push(`/resultDatas/${encodeURIComponent(searchQuery)}`);
+      setSearchQuery(searchQuery);
     } else {
       router.push(`/resultDatas`);
+      setSearchQuery(searchQuery);
     }
   };
 
@@ -42,7 +46,12 @@ const SearchBar: FC<SearchBarProps> = ({ onSearch }) => {
         className={styles.searchInput}
         placeholder="Search"
         value={searchQuery}
-        onFocus={() => router.push(`/resultDatas`)}
+        onKeyDown={onKeyDownHandle}
+        onFocus={() => {
+          console.log("focus");
+
+          router.push(`/resultDatas`);
+        }}
         onChange={handleInputChange}
       />
     </div>

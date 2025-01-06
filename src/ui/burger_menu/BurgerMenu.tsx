@@ -3,10 +3,13 @@ import React, { useState } from "react";
 import "./BurgerMenu.css";
 import Link from "next/link";
 import { useLanguageStore } from "@/store/UseLanguageStore";
+import { IoSearch } from "react-icons/io5";
+import { useRouter } from "next/navigation";
 
 const BurgerMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage } = useLanguageStore();
+  const router = useRouter();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -91,6 +94,9 @@ const BurgerMenu: React.FC = () => {
               className={`lang-btn ${language === "ru" ? "active" : ""}`}
             >
               RU
+            </button>
+            <button onClick={() => router.push("/resultDatas")}>
+              <IoSearch />
             </button>
           </div>
         </ul>
