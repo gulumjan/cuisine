@@ -62,23 +62,51 @@ const BurgerMenu: React.FC = () => {
         <div className="top_line"></div>
         <ul>
           <li>
-            <Link href="/">
-              <p onClick={scrollToTop}>{translate("interior")}</p>
+            <Link href="/#Interior">
+              <p
+                onClick={() => {
+                  setIsOpen(false);
+                  scrollToTop();
+                }}
+              >
+                {translate("interior")}
+              </p>
             </Link>
           </li>
           <li>
-            <Link href="/">
-              <p onClick={scrollToTop}>{translate("aboutUs")}</p>
+            <Link href="/#AboutUs">
+              <p
+                onClick={() => {
+                  setIsOpen(false);
+                  scrollToTop();
+                }}
+              >
+                {translate("aboutUs")}
+              </p>
             </Link>
           </li>
           <li>
             <Link href="/menu">
-              <p onClick={scrollToTop}>{translate("menu")}</p>
+              <p
+                onClick={() => {
+                  setIsOpen(false);
+                  scrollToTop();
+                }}
+              >
+                {translate("menu")}
+              </p>
             </Link>
           </li>
           <li>
-            <Link href="/">
-              <p onClick={scrollToTop}>{translate("contact")}</p>
+            <Link href="/#Contact">
+              <p
+                onClick={() => {
+                  setIsOpen(false);
+                  scrollToTop();
+                }}
+              >
+                {translate("contact")}
+              </p>
             </Link>
           </li>
 
@@ -95,7 +123,12 @@ const BurgerMenu: React.FC = () => {
             >
               RU
             </button>
-            <button onClick={() => router.push("/resultDatas")}>
+            <button
+              onClick={() => {
+                router.push("/resultDatas");
+                setIsOpen(false);
+              }}
+            >
               <IoSearch />
             </button>
           </div>
